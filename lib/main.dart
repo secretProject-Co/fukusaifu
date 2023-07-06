@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fukusaifu/constraints/color_constants.dart';
 import 'package:gap/gap.dart';
 
 void main() {
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Hello world"),
+            Text("Hello world",style: TextStyle(color: AppConst.kMainGreen),),
             Gap(20),
             Text("こんにちは"),
             Gap(20),
