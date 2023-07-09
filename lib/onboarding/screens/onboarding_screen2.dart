@@ -29,7 +29,7 @@ class OnboardingScreen extends StatelessWidget {
             ),
             const Gap(20),
             Text(
-              "では、Fukusaifuへようこそ！",
+              "では、Fukusaifuへようこそ!",
               style: GoogleFonts.notoSans(
                 color: AppConst.kMainBlack,
                 fontSize: 12,
