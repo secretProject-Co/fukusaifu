@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fukusaifu/splash/splash.dart';
+import 'auth/screens/sign_in_screen.dart';
+import 'auth/screens/sign_up_screen.dart';
 import 'onboarding/screens/onboarding_screen.dart';
-import 'splash/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +16,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Splash(),
         '/onboardingScreen': (context) => const OnboardingScreen(),
+        '/signinScreen':(context) => const SignInScreen(),
+        '/signupScreen':(context) => const SignUpScreen(),
       },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
