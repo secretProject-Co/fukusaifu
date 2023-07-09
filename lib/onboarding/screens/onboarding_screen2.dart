@@ -20,7 +20,7 @@ class OnboardingScreen extends StatelessWidget {
               height: 500,
             ),
             Text(
-              "副業を探すことに苦労していますか？",
+              "Fukusaifuは高品質な副業を見つけるための\nあなたの最良のパートナー",
               style: GoogleFonts.notoSans(
                 color: AppConst.kMainSubTitle,
                 fontSize: 22,
@@ -29,7 +29,7 @@ class OnboardingScreen extends StatelessWidget {
             ),
             const Gap(20),
             Text(
-              "今月の給料では足りませんか？\n私、副業ができるかな? と心配していませんか？",
+              "では、Fukusaifuへようこそ！",
               style: GoogleFonts.notoSans(
                 color: AppConst.kMainBlack,
                 fontSize: 12,
