@@ -4,8 +4,8 @@ import 'package:fukusaifu/constants/color_constants.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+class OnboardingScreen2 extends StatelessWidget {
+  const OnboardingScreen2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +21,17 @@ class OnboardingScreen extends StatelessWidget {
               height: 400,
             ),
             Text(
-              "副業を探すことに苦労していますか？",
+              "Fukusaifuは高品質な副業を見つけるための\nあなたの最良のパートナー",
               style: GoogleFonts.notoSans(
                 color: AppConst.kMainSubTitle,
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.w500,
               ),
+              textAlign: TextAlign.center,
             ),
             const Gap(20),
             Text(
-              "副業を通じて成長しますか？\n私、副業ができるかな? と心配していませんか？",
+              "では、Fukusaifuへようこそ!",
               style: GoogleFonts.notoSans(
                 color: AppConst.kMainBlack,
                 fontSize: 12,
@@ -47,7 +48,7 @@ class OnboardingScreen extends StatelessWidget {
                 widthSize: 3.5,
                 onPressed: () {
                   Navigator.pushNamedAndRemoveUntil(
-                      context, '/onboardingScreen2', (route) => false);
+                      context, '/signinScreen', (route) => false);
                 }),
           ],
         ),
