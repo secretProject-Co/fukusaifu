@@ -24,34 +24,46 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      obscureText: isPassword,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: AppConst.kMainWhite,
-        hintText: hintText,
-        suffixIcon: suffixIcon,
-        hintStyle: TextStyle(
-            color: Colors.grey.shade400
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            width: 1,
-            color: Colors.grey.shade400,
+    return Container(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x115A6CEA),
+            blurRadius: 50,
+            offset: Offset(12, 26),
+            spreadRadius: 0,
           ),
-          borderRadius: BorderRadius.circular(15),
+        ]
+      ),
+      child: TextField(
+        controller: controller,
+        obscureText: isPassword,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: AppConst.kMainWhite,
+          hintText: hintText,
+          suffixIcon: suffixIcon,
+          hintStyle: TextStyle(
+              color: Colors.grey.shade400
+          ),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(
+              width: 1,
+              color: AppConst.kBorderLine,
+            ),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 1, color: AppConst.kBorderLine,),
+            borderRadius: BorderRadius.circular(15),),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 1, color: color,),
+            borderRadius: BorderRadius.circular(15),),
+          disabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 1, color: AppConst.kBorderLine,),
+            borderRadius: BorderRadius.circular(15),),
+          contentPadding: const EdgeInsets.all(20),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 3, color: Colors.grey.shade400,),
-          borderRadius: BorderRadius.circular(15),),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 3, color: color,),
-          borderRadius: BorderRadius.circular(15),),
-        disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 3, color: Colors.grey.shade400,),
-          borderRadius: BorderRadius.circular(15),),
-        contentPadding: EdgeInsets.all(20),
       ),
     );
   }

@@ -11,4 +11,5 @@ class AppConst {
   static const Color kMainInput = Color(0xFFDA6317);
   static const Color kMainInputBg = Color(0xFFF9A84D);
   static const Color kMainLink = Color(0xFFFF7C32);
+  static const Color kBorderLine = Color(0xFFF4F4F4);
 }
