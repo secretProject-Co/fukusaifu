@@ -34,13 +34,11 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
                     alignment: Alignment.centerLeft,
                     child: ArrowBackComponent(onPressed: () {})),
                 Container(
-                  // padding: const EdgeInsets.symmetric(horizontal: 20),
                   padding: EdgeInsets.only(
                       left: 25,
                       right: 25,
                       bottom: MediaQuery.of(context).size.height * .03),
                   color: Colors.grey.shade50,
-
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -95,9 +93,7 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
                 text: "Next",
                 textColor: AppConst.kMainWhite,
                 widthSize: 5,
-                onPressed: () {
-                  // emailController.text = "Text Change!!!!!";
-                },
+                onPressed: () {},
               ),
             ),
           ],
