@@ -5,6 +5,7 @@ import 'auth/screens/sign_up_screen.dart';
 import 'onboarding/screens/onboarding_screen.dart';
 import 'onboarding/screens/onboarding_screen2.dart';
 import 'auth/screens/sign_up_screen_process.dart';
+import 'auth/screens/sign_up_upload_photo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/signinScreen': (context) => const SignInScreen(),
         '/signupScreen': (context) => const SignUpScreen(),
         '/signupScreenProcess': (context) => const SignUpScreenProcess(),
+        '/signupUploadPhoto': (context) => const SignUpUploadPhoto(),
       },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,

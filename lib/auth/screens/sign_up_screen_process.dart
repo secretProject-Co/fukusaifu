@@ -24,22 +24,24 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: ArrowBackComponent(onPressed: () {})),
-                Container(
-                  padding: EdgeInsets.only(
-                      left: 25,
-                      right: 25,
-                      bottom: MediaQuery.of(context).size.height * .03),
-                  color: Colors.grey.shade50,
-                  child: Column(
+        child: Container(
+          padding: EdgeInsets.only(
+              left: 25,
+              right: 25,
+              bottom: MediaQuery.of(context).size.height * .03),
+          color: Colors.grey.shade50,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: ArrowBackComponent(onPressed: () {
+                        Navigator.pop(context);
+                      })),
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
@@ -83,20 +85,22 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
                       )
                     ],
                   ),
-                ),
-              ],
-            ),
-            Center(
-              child: GradientButton(
-                startColor: AppConst.kMainGreen,
-                endColor: AppConst.kGradientEnd,
-                text: "Next",
-                textColor: AppConst.kMainWhite,
-                widthSize: 5,
-                onPressed: () {},
+                ],
               ),
-            ),
-          ],
+              Center(
+                child: GradientButton(
+                  startColor: AppConst.kMainGreen,
+                  endColor: AppConst.kGradientEnd,
+                  text: "Next",
+                  textColor: AppConst.kMainWhite,
+                  widthSize: 5,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signupUploadPhoto');
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -23,7 +23,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(left: 25,right:25,bottom: MediaQuery.of(context).size.height*.03),
+          padding: EdgeInsets.only(
+              left: 25,
+              right: 25,
+              bottom: MediaQuery.of(context).size.height * .03),
           color: Colors.grey.shade50,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,8 +37,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(20),
                   child: SizedBox(
-                    width: MediaQuery.of(context).size.width *.5,
-                    child: const FlutterLogo(size: double.infinity,),
+                    width: MediaQuery.of(context).size.width * .5,
+                    child: const FlutterLogo(
+                      size: double.infinity,
+                    ),
                   ),
                 ),
               ),
@@ -43,7 +48,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Flexible(
                 flex: 1,
                 child: MainTitleText(
-                  title: "無料でアカウント作成", color: AppConst.kMainTitle, textSize: 20,),
+                  title: "無料でアカウント作成",
+                  color: AppConst.kMainTitle,
+                  textSize: 20,
+                ),
               ),
               const Gap(20),
               CustomTextField(
@@ -91,17 +99,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    MainTitleText(
-                      title: "アカウントをお持ちですか？",
+                    const MainTitleText(
+                      title: "アカウントをお持ちではないですか？",
                       color: AppConst.kMainTitle,
                       textSize: 12,
                     ),
                     InkWell(
-                      onTap: (){
-                        Navigator.pop(context);
+                      onTap: () {
+                        Navigator.pushNamed(context, '/signupScreenProcess');
                       },
-                      child: Text(
-                        "サインイン",
+                      child: const Text(
+                        "今すぐ作成",
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 12,
@@ -124,12 +132,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: "アカウントを作成する",
                 textColor: AppConst.kMainWhite,
                 widthSize: 5,
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, '/signupScreenProcess');
                 },
               ),
               // Flexible(child: Container(),flex: 1,),
-
             ],
           ),
         ),
