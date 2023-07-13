@@ -28,6 +28,7 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: EdgeInsets.only(left: 25,right:25,bottom: MediaQuery.of(context).size.height*.03),
           color: Colors.grey.shade50,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 flex: 6,
@@ -44,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const Flexible(
                 flex: 1,
                 child: MainTitleText(
-                    title: "ログイン", color: AppConst.kMainTitle, textSize: 20,),
+                    title: "サインイン", color: AppConst.kMainTitle, textSize: 20,),
               ),
               const Gap(20),
               CustomTextField(
@@ -78,7 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    MainTitleText(
+                    const MainTitleText(
                       title: "アカウントをお持ちではないですか？",
                       color: AppConst.kMainTitle,
                       textSize: 12,
@@ -87,7 +88,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       onTap: (){
                         Navigator.pushNamed(context, '/signupScreen');
                       },
-                      child: Text(
+                      child: const Text(
                         "今すぐ作成",
                         style: TextStyle(
                           color: Colors.blue,
