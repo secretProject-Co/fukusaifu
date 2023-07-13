@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fukusaifu/auth/screens/sign_up_success_screen.dart';
 import 'package:fukusaifu/splash/splash.dart';
 import 'auth/screens/sign_in_screen.dart';
 import 'auth/screens/sign_up_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/signupScreen': (context) => const SignUpScreen(),
         '/signupScreenProcess': (context) => const SignUpScreenProcess(),
         '/signupUploadPhoto': (context) => const SignUpUploadPhoto(),
+        '/signupSuccessScreen': (context) => const SignupSuccessScreen(),
       },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
