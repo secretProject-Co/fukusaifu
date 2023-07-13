@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
 
 class ArrowBackComponent extends StatelessWidget {
-  final Function onPressed;
+  final VoidCallback onPressed;
 
   const ArrowBackComponent({required this.onPressed, Key? key})
       : super(key: key);
@@ -10,7 +10,7 @@ class ArrowBackComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(25, 10, 0, 0),
+        margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         height: 50,
         width: 50,
         decoration: BoxDecoration(
@@ -18,7 +18,7 @@ class ArrowBackComponent extends StatelessWidget {
           color: AppConst.kMainBackBg.withOpacity(0.1),
         ),
         child: IconButton(
-            onPressed: onPressed as void Function()?,
+            onPressed: onPressed,
             icon: const Icon(Icons.arrow_back_ios_new_rounded,
                 color: AppConst.kMainBackBtn)));
   }

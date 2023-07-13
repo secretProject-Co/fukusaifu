@@ -38,6 +38,9 @@ dependencies:
   page_transition: ^2.0.9
   persistent_bottom_nav_bar: ^5.0.2
   smooth_page_indicator: ^1.1.0
+  camera: ^0.10.5+2
+  image_picker: ^1.0.1
+  permission_handler: ^10.4.2
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
