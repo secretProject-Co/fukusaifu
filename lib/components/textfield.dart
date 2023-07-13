@@ -10,12 +10,16 @@ class CustomTextField extends StatelessWidget {
       required this.isPassword,
       this.textInputType,
       this.suffixIcon,
-      required this.controller})
+      required this.controller,
+      this.prefixIcon,
+      this.prefixIconColor})
       : super(key: key);
 
   final String hintText;
   final IconData? icon;
+  final Widget? prefixIcon;
   final Color color;
+  final Color? prefixIconColor;
   final bool isPassword;
   final TextInputType? textInputType;
   final IconButton? suffixIcon;
@@ -43,6 +47,8 @@ class CustomTextField extends StatelessWidget {
           fillColor: AppConst.kMainWhite,
           hintText: hintText,
           suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          prefixIconColor: prefixIconColor,
           hintStyle: TextStyle(
               color: Colors.grey.shade400
           ),
