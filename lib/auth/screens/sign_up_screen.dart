@@ -100,16 +100,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const MainTitleText(
-                      title: "アカウントをお持ちではないですか？",
+                      title: "アカウントをお持ちですか？",
                       color: AppConst.kMainTitle,
                       textSize: 12,
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, '/signupScreenProcess');
+                        Navigator.pop(context);
                       },
                       child: const Text(
-                        "今すぐ作成",
+                        "サインイン",
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 12,

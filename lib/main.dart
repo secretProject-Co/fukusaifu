@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fukusaifu/auth/screens/sign_up_success_screen.dart';
+import 'package:fukusaifu/home/bottom/CustomButtomBar.dart';
+import 'package:fukusaifu/home/screens/home.dart';
+import 'package:fukusaifu/home/screens/home_screen.dart';
+import 'package:fukusaifu/home/screens/profile_screen.dart';
 import 'package:fukusaifu/splash/splash.dart';
 import 'auth/screens/sign_in_screen.dart';
 import 'auth/screens/sign_up_screen.dart';
@@ -24,6 +29,9 @@ class MyApp extends StatelessWidget {
         '/signupScreen': (context) => const SignUpScreen(),
         '/signupScreenProcess': (context) => const SignUpScreenProcess(),
         '/signupUploadPhoto': (context) => const SignUpUploadPhoto(),
+        '/signupSuccessScreen': (context) => const SignupSuccessScreen(),
+        '/home': (context) => const Home(),
+
       },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
