@@ -13,7 +13,7 @@ class MainTitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: textSize),
+      style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: textSize,),
     );
   }
 }
