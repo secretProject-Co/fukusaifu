@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:fukusaifu/auth/screens/sign_up_upload_preview.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/components/button/arrow_back.dart';
 import 'package:fukusaifu/components/gradient_button.dart';
@@ -35,10 +39,11 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
               Column(
                 children: [
                   Align(
-                      alignment: Alignment.centerLeft,
-                      child: ArrowBackComponent(onPressed: () {
-                        Navigator.pop(context);
-                      })),
+                    alignment: Alignment.centerLeft,
+                    child: ArrowBackComponent(onPressed: () {
+                      Navigator.pop(context);
+                    }),
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -59,28 +64,99 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                       const Gap(15),
                       Column(
                         children: [
-                          const SizedBox(height: 20),
-                          if (_pickedFile != null)
-                            FloatingActionButton(
-                              onPressed: () async {
-                                _pickedFile = await _picker.pickImage(
-                                    source: ImageSource.gallery);
-                                setState(() {});
-                              },
-                              tooltip: '画像を選択',
-                              child: const Icon(Icons.photo_library),
+                          Container(
+                            width: 375,
+                            height: 129,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: AppConst.kMainWhite,
+                                borderRadius: BorderRadius.circular(22),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: AppConst.kBoxShadow,
+                                    blurRadius: 50,
+                                    offset: Offset(0, 0),
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                                image: _pickedFile != null
+                                    ? DecorationImage(
+                                        image: FileImage(
+                                          File(_pickedFile!.path),
+                                        ),
+                                        fit: BoxFit.cover,
+                                      )
+                                    : null),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  elevation: 0,
+                                  foregroundColor: Colors.transparent,
+                                  backgroundColor: Colors.transparent,
+                                  onPressed: () async {
+                                    _pickedFile = await _picker.pickImage(
+                                        source: ImageSource.gallery);
+                                    setState(() {});
+                                  },
+                                  heroTag: "photoUpload",
+                                  child: _pickedFile == null
+                                      ? SvgPicture.asset(
+                                          "assets/images/photoUpload.svg")
+                                      : Container(),
+                                ),
+                                const SizedBox(height: 10),
+                                _pickedFile == null
+                                    ? const Text("写真を選択")
+                                    : Container(),
+                              ],
                             ),
-                          FloatingActionButton(
-                            onPressed: () async {
-                              _pickedFile = await _picker.pickImage(
-                                  source: ImageSource.camera);
-                              setState(() {});
-                            },
-                            tooltip: 'カメラを起動',
-                            child: const Icon(Icons.photo_camera),
                           ),
+
+                          const Gap(30),
+                          Container(
+                            width: 375,
+                            height:
+                                129, // adjust height to accommodate the text
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: AppConst.kMainWhite,
+                                borderRadius: BorderRadius.circular(22),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: AppConst.kBoxShadow,
+                                    blurRadius: 50,
+                                    offset: Offset(0, 0),
+                                    spreadRadius: 0,
+                                  ),
+                                ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  elevation: 0,
+                                  foregroundColor: Colors.transparent,
+                                  backgroundColor: Colors.transparent,
+                                  onPressed: () async {
+                                    _pickedFile = await _picker.pickImage(
+                                        source: ImageSource.camera);
+                                    setState(() {});
+                                  },
+                                  heroTag: "camera",
+                                  child: SvgPicture.asset(
+                                    "assets/images/camera.svg",
+                                  ),
+                                ),
+                                const SizedBox(
+                                    height:
+                                        10), // provide some space between button and text
+                                const Text("カメラを起動"),
+                              ],
+                            ),
+                          ),
+                          // const Text("カメラを起動"),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ],
@@ -93,7 +169,13 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                   textColor: AppConst.kMainWhite,
                   widthSize: 5,
                   onPressed: () {
-                    Navigator.pushNamed(context, '/signupUploadPhoto');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => signUpUploadPreView(
+                                  imagePath: _pickedFile!.path,
+                                )));
+                    // Navigator.pushNamed(context, '/signupUploadPhoto');
                   },
                 ),
               ),
@@ -104,161 +186,3 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
     );
   }
 }
-
-
-// import 'dart:io';
-
-// import 'package:flutter/material.dart';
-// import 'package:fukusaifu/auth/widgets/main_title_text.dart';
-// import 'package:fukusaifu/components/button/arrow_back.dart';
-// import 'package:fukusaifu/components/gradient_button.dart';
-// import 'package:fukusaifu/constants/color_constants.dart';
-// import 'package:gap/gap.dart';
-// import 'package:image_picker/image_picker.dart';
-// import 'package:permission_handler/permission_handler.dart';
-
-// class SignUpUploadPhoto extends StatefulWidget {
-//   const SignUpUploadPhoto({Key? key}) : super(key: key);
-
-//   @override
-//   State<SignUpUploadPhoto> createState() => _SignUpUploadPhotoState();
-// }
-
-// class ImagePickerWidget extends StatefulWidget {
-//   const ImagePickerWidget({Key? key}) : super(key: key);
-
-//   @override
-//   _ImagePickerWidgetState createState() => _ImagePickerWidgetState();
-// }
-
-// class _ImagePickerWidgetState extends State<ImagePickerWidget> {
-//   File? _imageFile;
-//   final picker = ImagePicker();
-
-// }
-
-// Future getImageFromGallery() async {
-//   var status = await Permission.photos.request();
-//   if (status.isGranted) {
-//     var picker;
-//     final pickedFile = await picker.getImage(source: ImageSource.gallery);
-//     setState(() {
-//       if (pickedFile != null) {
-//         var imageFile = File(pickedFile.path);
-//       } else {
-//         print('イメージが選択されていません。');
-//       }
-//     });
-//   } else {
-//     print('写真へのアクセス許可が拒否されました。');
-//   }
-// }
-
-// void setState(Null Function() param0) {}
-
-// Future getImageFromCamera() async {
-//   var status = await Permission.camera.request();
-//   if (status.isGranted) {
-//     var picker;
-//     final pickedFile = await picker.getImage(source: ImageSource.camera);
-//     setState(() {
-//       if (pickedFile != null) {
-//         var imageFile = File(pickedFile.path);
-//       } else {
-//         print('イメージが選択されていません。');
-//       }
-//     });
-//   } else {
-//     print('カメラへのアクセス許可が拒否されました。');
-//   }
-// }
-
-// class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
-//   bool showPass = true;
-//   TextEditingController kanjiNameController = TextEditingController();
-//   TextEditingController hiraganaNameController = TextEditingController();
-//   TextEditingController mobileNumberController = TextEditingController();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     var imageFile;
-//     return Scaffold(
-//       body: SafeArea(
-//         child: Container(
-//           padding: EdgeInsets.only(
-//               left: 25,
-//               right: 25,
-//               bottom: MediaQuery.of(context).size.height * .03),
-//           color: Colors.grey.shade50,
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               Column(
-//                 children: [
-//                   Align(
-//                       alignment: Alignment.centerLeft,
-//                       child: ArrowBackComponent(onPressed: () {
-//                         Navigator.pop(context);
-//                       })),
-//                   Column(
-//                     crossAxisAlignment: CrossAxisAlignment.start,
-//                     children: [
-//                       Container(
-//                           alignment: Alignment.center,
-//                           padding: const EdgeInsets.fromLTRB(5, 10, 0, 10)),
-//                       const MainTitleText(
-//                         title: "写真アップロード",
-//                         color: AppConst.kMainTitle,
-//                         textSize: 24,
-//                       ),
-//                       const Gap(15),
-//                       const MainTitleText(
-//                         title: "このデータはセキュリティのため、\nアカウントプロフィールに表示されます。",
-//                         color: AppConst.kMainTitle,
-//                         textSize: 13,
-//                       ),
-//                       const Gap(15),
-//                       Column(
-//                         children: [
-//                           const ImagePickerWidget(),
-//                           imageFile == null
-//                               ? const Text('イメージが選択されていません。')
-//                               : Image.file(imageFile!),
-//                           const SizedBox(height: 20),
-//                           const FloatingActionButton(
-//                             onPressed: getImageFromGallery,
-//                             tooltip: '画像を選択',
-//                             child: Icon(Icons.photo_library),
-//                           ),
-//                           const SizedBox(height: 20),
-//                           const FloatingActionButton(
-//                             onPressed: getImageFromCamera,
-//                             tooltip: 'カメラを起動',
-//                             child: Icon(Icons.photo_camera),
-//                           ),
-//                         ],
-//                       )
-//                     ],
-//                   ),
-//                 ],
-//               ),
-//               Center(
-//                 child: GradientButton(
-//                   startColor: AppConst.kMainGreen,
-//                   endColor: AppConst.kGradientEnd,
-//                   text: "Next",
-//                   textColor: AppConst.kMainWhite,
-//                   widthSize: 5,
-//                   onPressed: () {
-//                     Navigator.pushNamed(context, '/signupUploadPhoto');
-//                   },
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

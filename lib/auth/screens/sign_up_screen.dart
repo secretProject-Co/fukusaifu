@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
-import 'package:fukusaifu/auth/widgets/signin_logo.dart';
 import 'package:fukusaifu/components/gradient_button.dart';
 import 'package:fukusaifu/components/textfield.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
