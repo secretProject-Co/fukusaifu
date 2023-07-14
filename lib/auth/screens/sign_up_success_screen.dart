@@ -49,7 +49,7 @@ class SignupSuccessScreen extends StatelessWidget {
                 textColor: AppConst.kMainWhite,
                 widthSize: 4,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/signupUploadPhoto');
+                  Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                 },
               )
             ],
