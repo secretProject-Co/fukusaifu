@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/components/gradient_button.dart';
@@ -20,7 +19,9 @@ class SignupSuccessScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(child: Container(),),
+              Expanded(
+                child: Container(),
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -41,15 +42,18 @@ class SignupSuccessScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Expanded(child: Container(),),
+              Expanded(
+                child: Container(),
+              ),
               GradientButton(
                 startColor: AppConst.kMainGreen,
                 endColor: AppConst.kGradientEnd,
-                text: "Try Order",
+                text: "Home",
                 textColor: AppConst.kMainWhite,
                 widthSize: 4,
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/home', (route) => false);
                 },
               )
             ],
