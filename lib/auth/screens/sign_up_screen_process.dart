@@ -64,20 +64,20 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
                           CustomTextField(
                             controller: kanjiNameController,
                             hintText: "山田 太郎",
-                            color: AppConst.kMainGreen,
+                            borderLineColor: AppConst.kMainGreen,
                             isPassword: false,
                           ),
                           const Gap(20),
                           CustomTextField(
                             hintText: "やまだ たろう",
-                            color: AppConst.kMainGreen,
+                            borderLineColor: AppConst.kMainGreen,
                             isPassword: false,
                             controller: hiraganaNameController,
                           ),
                           const Gap(20),
                           CustomTextField(
                             hintText: "携帯番号",
-                            color: AppConst.kMainGreen,
+                            borderLineColor: AppConst.kMainGreen,
                             isPassword: false,
                             controller: mobileNumberController,
                           ),

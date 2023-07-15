@@ -21,8 +21,8 @@ class _CustomButtomBarState extends State<CustomButtomBar> {
 
   List<Widget> _buildScreens() => [
     const HomeScreen(),
-    const AddPostScreen(),
     const ChatScreen(),
+    const AddPostScreen(),
     const ProfileScreen(),
   ];
 

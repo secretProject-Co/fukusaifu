@@ -56,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomTextField(
                 controller: emailController,
                 hintText: "ニックネーム",
-                color: AppConst.kGradientEnd,
+                borderLineColor: AppConst.kGradientEnd,
                 isPassword: false,
                 prefixIcon: const Icon(Icons.person_outline),
                 prefixIconColor: AppConst.kGradientEnd,
@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Gap(10),
               CustomTextField(
                 hintText: "Eメール",
-                color: AppConst.kGradientEnd,
+                borderLineColor: AppConst.kGradientEnd,
                 prefixIcon: const Icon(Icons.email_outlined),
                 prefixIconColor: AppConst.kGradientEnd,
                 textInputType: TextInputType.visiblePassword,
@@ -74,7 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Gap(10),
               CustomTextField(
                 hintText: "パスワード",
-                color: AppConst.kGradientEnd,
+                borderLineColor: AppConst.kGradientEnd,
                 prefixIcon: const Icon(Icons.lock_outline),
                 prefixIconColor: AppConst.kGradientEnd,
                 suffixIcon: IconButton(
