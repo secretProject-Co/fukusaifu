@@ -51,13 +51,13 @@ class _SignInScreenState extends State<SignInScreen> {
               CustomTextField(
                 controller: emailController,
                 hintText: "Eメール",
-                color: AppConst.kGradientEnd,
+                borderLineColor: AppConst.kGradientEnd,
                 isPassword: false,
               ),
               const Gap(10),
               CustomTextField(
                 hintText: "パスワード",
-                color: AppConst.kGradientEnd,
+                borderLineColor: AppConst.kGradientEnd,
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {

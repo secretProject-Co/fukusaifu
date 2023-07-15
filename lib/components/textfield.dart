@@ -6,19 +6,23 @@ class CustomTextField extends StatelessWidget {
       {Key? key,
       required this.hintText,
       this.icon,
-      required this.color,
+      this.borderLineColor,
       required this.isPassword,
       this.textInputType,
       this.suffixIcon,
       required this.controller,
       this.prefixIcon,
-      this.prefixIconColor})
+      this.prefixIconColor,
+      this.hintTextColor,
+      this.inputBkgColor})
       : super(key: key);
 
   final String hintText;
+  final Color? hintTextColor;
+  final Color? inputBkgColor;
   final IconData? icon;
   final Widget? prefixIcon;
-  final Color color;
+  final Color? borderLineColor;
   final Color? prefixIconColor;
   final bool isPassword;
   final TextInputType? textInputType;
@@ -44,13 +48,13 @@ class CustomTextField extends StatelessWidget {
         obscureText: isPassword,
         decoration: InputDecoration(
           filled: true,
-          fillColor: AppConst.kMainWhite,
+          fillColor: inputBkgColor ?? Colors.white,
           hintText: hintText,
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           prefixIconColor: prefixIconColor,
           hintStyle: TextStyle(
-              color: Colors.grey.shade400
+              color: hintTextColor ?? Colors.grey.shade400
           ),
           border: OutlineInputBorder(
             borderSide: const BorderSide(
@@ -63,7 +67,7 @@ class CustomTextField extends StatelessWidget {
             borderSide: const BorderSide(width: 1, color: AppConst.kBorderLine,),
             borderRadius: BorderRadius.circular(15),),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 1, color: color,),
+            borderSide: BorderSide(width: 1, color: borderLineColor ?? Colors.transparent),
             borderRadius: BorderRadius.circular(15),),
           disabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(width: 1, color: AppConst.kBorderLine,),
