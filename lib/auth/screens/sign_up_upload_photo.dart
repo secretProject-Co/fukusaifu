@@ -169,13 +169,20 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                   textColor: AppConst.kMainWhite,
                   widthSize: 5,
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => signUpUploadPreView(
-                                  imagePath: _pickedFile!.path,
-                                )));
-                    // Navigator.pushNamed(context, '/signupUploadPhoto');
+                    if (_pickedFile != null) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignupUploadPreView(
+                                    imagePath: _pickedFile!.path,
+                                  )));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("画像を選択してください"),
+                        ),
+                      );
+                    }
                   },
                 ),
               ),

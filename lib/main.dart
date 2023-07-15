@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/signupScreenProcess': (context) => const SignUpScreenProcess(),
         '/signupUploadPhoto': (context) => const SignUpUploadPhoto(),
         '/signupSuccessScreen': (context) => const SignupSuccessScreen(),
-        '/signupUploadPreview': (context) => const signUpUploadPreView(),
+        '/signupUploadPreView': (context) => const SignupUploadPreView(),
         '/home': (context) => const Home(),
       },
       title: 'Flutter Demo',
