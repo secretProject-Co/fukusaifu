@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/components/button/arrow_back.dart';
 import 'package:fukusaifu/components/textfield.dart';
@@ -25,10 +26,7 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(
-              left: 25,
-              right: 25,
-              bottom: MediaQuery.of(context).size.height * .03),
+          padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 30.h),
           color: Colors.grey.shade50,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,19 +44,19 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
                     children: [
                       Container(
                           alignment: Alignment.center,
-                          padding: const EdgeInsets.fromLTRB(5, 10, 0, 10)),
-                      const MainTitleText(
+                          padding: EdgeInsets.fromLTRB(5.w, 10.h, 0.w, 10.h)),
+                      MainTitleText(
                         title: "自己紹介を記入してスタート",
                         color: AppConst.kMainTitle,
-                        textSize: 24,
+                        textSize: 24.sp,
                       ),
-                      const Gap(5),
-                      const MainTitleText(
+                      Gap(5.h),
+                      MainTitleText(
                         title: "この情報はセキュリティに使用されます",
                         color: AppConst.kMainTitle,
-                        textSize: 13,
+                        textSize: 13.sp,
                       ),
-                      const Gap(15),
+                      Gap(15.h),
                       Column(
                         children: [
                           CustomTextField(
@@ -67,14 +65,14 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
                             borderLineColor: AppConst.kMainGreen,
                             isPassword: false,
                           ),
-                          const Gap(20),
+                          Gap(20.h),
                           CustomTextField(
                             hintText: "やまだ たろう",
                             borderLineColor: AppConst.kMainGreen,
                             isPassword: false,
                             controller: hiraganaNameController,
                           ),
-                          const Gap(20),
+                          Gap(20.h),
                           CustomTextField(
                             hintText: "携帯番号",
                             borderLineColor: AppConst.kMainGreen,
@@ -93,7 +91,7 @@ class _SignUpScreenProcessState extends State<SignUpScreenProcess> {
                   endColor: AppConst.kGradientEnd,
                   text: "Next",
                   textColor: AppConst.kMainWhite,
-                  widthSize: 5,
+                  widthSize: 4.w,
                   onPressed: () {
                     Navigator.pushNamed(context, '/signupUploadPhoto');
                   },
