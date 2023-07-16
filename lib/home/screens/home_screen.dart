@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
+import 'package:fukusaifu/components/page_view_builder_widget.dart';
 import 'package:fukusaifu/components/promo_box.dart';
 import 'package:fukusaifu/components/round_rectangle_icon.dart';
 import 'package:fukusaifu/components/textfield.dart';
@@ -108,23 +109,68 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               const Gap(20),
               SizedBox(
-                height: 184,
-                child: ListView.separated(
-                  shrinkWrap: true,
+                height: 87,
+                width: double.infinity,
+                child: PageView.builder(
                   itemCount: model2.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     var landModel = model2[index];
-                    return LanderingPageWdiget(
+                      return PageViewBuilderWidget(
                         title: landModel.title!,
                         imagePath: landModel.imageLink!,
-                        subTitle: landModel.price!.toString());
-                  },
-                  separatorBuilder: (BuildContext context, int index) {
-                    return Container(
-                      color: AppConst.kScreenBkgColor,
-                      child: const SizedBox(width: 20),
-                    );
+                        subTitle: landModel.period!,
+                        price: landModel.price!,
+                      );
+
+                      // return Container(
+                    //   height: 87,
+                    //   width: MediaQuery.of(context).size.width*.85,
+                    //   padding: const EdgeInsets.fromLTRB(10, 11, 20, 12),
+                    //   decoration: BoxDecoration(
+                    //     color: AppConst.kMainWhite,
+                    //     borderRadius: BorderRadius.circular(22),
+                    //   ),
+                    //   child: Row(
+                    //     crossAxisAlignment: CrossAxisAlignment.center,
+                    //       children: [
+                    //         Container(
+                    //           decoration: BoxDecoration(
+                    //             borderRadius: BorderRadius.circular(10),
+                    //           ),
+                    //           width: 64,
+                    //           height: 64,
+                    //           clipBehavior: Clip.antiAlias,
+                    //           child: Image.network(landModel.imageLink!),
+                    //         ),
+                    //         const Gap(21),
+                    //         Expanded(
+                    //           child: Column(
+                    //             crossAxisAlignment: CrossAxisAlignment.start,
+                    //             mainAxisAlignment: MainAxisAlignment.center,
+                    //             children: [
+                    //               const MainTitleText(
+                    //                 title: "Herbal pancake",
+                    //                 color: AppConst.kMainBlack,
+                    //                 textSize: 15,
+                    //               ),
+                    //               MainTitleText(
+                    //                 title: "Warung Herbal",
+                    //                 color:
+                    //                     AppConst.kMainBlack.withOpacity(0.3),
+                    //                 textSize: 14,
+                    //               ),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         const MainTitleText(
+                    //           title: "\$7",
+                    //           color: AppConst.kHorizontalMenuWidgetColor,
+                    //           textSize: 22,
+                    //         ),
+                    //       ],
+                    //   ),
+                    // );
                   },
                 ),
               ),

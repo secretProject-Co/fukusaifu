@@ -17,4 +17,5 @@ class AppConst {
   static const Color kViewMore = Color(0xFFFF7B32);
   static const Color kScreenBkgColor = Color(0xFFfafaff);
   static const Color kBoxShadow = Color(0x115A6CEA);
+  static const Color kHorizontalMenuWidgetColor = Color(0xFFFEAD1D);
 }
