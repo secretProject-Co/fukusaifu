@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/components/button/arrow_back.dart';
@@ -18,9 +19,9 @@ class SignupUploadPreView extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.only(
-              left: 25,
-              right: 25,
-              bottom: MediaQuery.of(context).size.height * .03),
+              left: 25.w,
+              right: 25.w,
+              bottom: 30.h),
           color: Colors.grey.shade50,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,19 +40,19 @@ class SignupUploadPreView extends StatelessWidget {
                     children: [
                       Container(
                           alignment: Alignment.center,
-                          padding: const EdgeInsets.fromLTRB(5, 10, 0, 10)),
+                          padding: EdgeInsets.fromLTRB(5.w, 10.h, 0.w, 10.h)),
                       const MainTitleText(
                         title: "プロフィール写真",
                         color: AppConst.kMainTitle,
                         textSize: 24,
                       ),
-                      const Gap(15),
+                      Gap(15.h),
                       const MainTitleText(
                         title: "アップロードした写真の確認をお願いします。\n次のステップへ進んでください。",
                         color: AppConst.kMainTitle,
                         textSize: 13,
                       ),
-                      const Gap(70),
+                      Gap(70.h),
                       Align(
                         child: imagePath != null
                             ? Stack(
@@ -61,13 +62,13 @@ class SignupUploadPreView extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(22),
                                     child: Image.file(
                                       File(imagePath!),
-                                      width: 245,
-                                      height: 238,
+                                      width: 245.w,
+                                      height: 238.h,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: EdgeInsets.all(8.0.w),
                                     child: IconButton(
                                       onPressed: () {
                                         // image delete action
@@ -91,7 +92,7 @@ class SignupUploadPreView extends StatelessWidget {
                   endColor: AppConst.kGradientEnd,
                   text: "Next",
                   textColor: AppConst.kMainWhite,
-                  widthSize: 4,
+                  widthSize: 4.w,
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
                         context, '/signupSuccessScreen', (route) => false);

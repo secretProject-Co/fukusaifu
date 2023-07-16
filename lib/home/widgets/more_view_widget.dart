@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
 
@@ -40,12 +41,12 @@ class MoreViewWidget extends StatelessWidget {
           MainTitleText(
             title: leftTitle,
             color: leftTitleColor,
-            textSize: 15,
+            textSize: 15.sp,
           ),
           MainTitleText(
             title: rightTitle,
             color: rightTitleColor,
-            textSize: 12,
+            textSize: 12.sp,
           ),
         ],
       ),
