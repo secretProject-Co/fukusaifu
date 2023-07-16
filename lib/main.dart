@@ -10,9 +10,15 @@ import 'onboarding/screens/onboarding_screen2.dart';
 import 'auth/screens/sign_up_screen_process.dart';
 import 'auth/screens/sign_up_upload_photo.dart';
 import 'auth/screens/sign_up_upload_preview.dart';
+import 'package:flutter/services.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 }
 
 class MyApp extends StatelessWidget {
