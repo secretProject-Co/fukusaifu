@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/components/page_view_builder_widget.dart';
 import 'package:fukusaifu/components/promo_box.dart';
@@ -26,78 +27,81 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppConst.kScreenBkgColor,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 60),
-          child: Column(
-            children: [
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  MainTitleText(
-                    title: "Fukusaifu\n見つけて、あなたの副業",
-                    color: AppConst.kMainTitle,
-                    textSize: 31),
-                  RoundRectangleIcon(
-                  icon: CupertinoIcons.bell,
-                  rightMargin: 14,
+        backgroundColor: AppConst.kScreenBkgColor,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 60),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MainTitleText(
+                        title: "Fukusaifu\n見つけて、あなたの副業",
+                        color: AppConst.kMainTitle,
+                        textSize: 25.sp),
+                    RoundRectangleIcon(
+                      icon: CupertinoIcons.bell,
+                      rightMargin: 0.w,
+                    ),
+                  ],
                 ),
-              ],
-              ),
-              const Gap(18),
-              CustomTextField(
+                const Gap(18),
+                CustomTextField(
                   hintText: "お探しの副業は？",
                   hintTextColor: AppConst.kMainInput.withOpacity(0.4),
                   inputBkgColor: AppConst.kMainBackBg.withOpacity(0.1),
                   isPassword: false,
                   controller: searchController,
-                  prefixIcon: const Icon(Icons.search,size: 24,),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    size: 24,
+                  ),
                   prefixIconColor: AppConst.kMainInput,
-              ),
-              const Gap(20),
-              const PromoBox(
-                  graStartColor: AppConst.kMainGreen,
-                  graEndColor: AppConst.kGradientEnd,
-                  imagePath: "assets/images/logo/google-logo-icon.png",
-                  imageSize: 130,
-                  mainTitle: "あなたのスキルを\n売り付けよう",
-                  mainTitleColor: AppConst.kMainWhite,
-                  mainTitleSize: 18,
-                  buttonText: "今すぐ登録",
-                  buttonColor: AppConst.kGradientEnd,
-                  buttonTextSize: 10),
-              const MoreViewWidget(
-                leftPadding: 6,
-                rightPadding: 7,
-                topPadding: 25,
-                leftTitle: "LP依頼",
-                rightTitle: "もっと見る",
-                leftTitleColor: AppConst.kMainBlack,
-                rightTitleColor: AppConst.kViewMore,
-              ),
-              const Gap(20),
-              SizedBox(
-              height: 184,
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: model2.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  var landModel = model2[index];
-                  return LanderingPageWdiget(
-                      title: landModel.title!,
-                      imagePath: landModel.imageLink!,
-                      subTitle: landModel.price!.toString());
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return Container(
-                    color: AppConst.kScreenBkgColor,
+                ),
+                const Gap(20),
+                const PromoBox(
+                    graStartColor: AppConst.kMainGreen,
+                    graEndColor: AppConst.kGradientEnd,
+                    imagePath: "assets/images/logo/google-logo-icon.png",
+                    imageSize: 130,
+                    mainTitle: "あなたのスキルを\n売り付けよう",
+                    mainTitleColor: AppConst.kMainWhite,
+                    mainTitleSize: 18,
+                    buttonText: "今すぐ登録",
+                    buttonColor: AppConst.kGradientEnd,
+                    buttonTextSize: 10),
+                const MoreViewWidget(
+                  leftPadding: 6,
+                  rightPadding: 7,
+                  topPadding: 25,
+                  leftTitle: "LP依頼",
+                  rightTitle: "もっと見る",
+                  leftTitleColor: AppConst.kMainBlack,
+                  rightTitleColor: AppConst.kViewMore,
+                ),
+                const Gap(20),
+                SizedBox(
+                  height: 184,
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: model2.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      var landModel = model2[index];
+                      return LanderingPageWdiget(
+                          title: landModel.title!,
+                          imagePath: landModel.imageLink!,
+                          subTitle: landModel.price!.toString());
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return Container(
+                        color: AppConst.kScreenBkgColor,
                         child: const SizedBox(width: 20),
                       );
                     },
-              ),
-            ),
+                  ),
+                ),
                 const MoreViewWidget(
                   leftPadding: 6,
                   rightPadding: 7,
@@ -107,77 +111,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   leftTitleColor: AppConst.kMainBlack,
                   rightTitleColor: AppConst.kViewMore,
                 ),
-              const Gap(20),
-              SizedBox(
-                height: 87,
-                width: double.infinity,
-                child: PageView.builder(
-                  itemCount: model2.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    var landModel = model2[index];
+                const Gap(20),
+                SizedBox(
+                  height: 87,
+                  width: double.infinity,
+                  child: PageView.builder(
+                    itemCount: model2.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      var landModel = model2[index];
                       return PageViewBuilderWidget(
                         title: landModel.title!,
                         imagePath: landModel.imageLink!,
                         subTitle: landModel.period!,
                         price: landModel.price!,
                       );
-
-                      // return Container(
-                    //   height: 87,
-                    //   width: MediaQuery.of(context).size.width*.85,
-                    //   padding: const EdgeInsets.fromLTRB(10, 11, 20, 12),
-                    //   decoration: BoxDecoration(
-                    //     color: AppConst.kMainWhite,
-                    //     borderRadius: BorderRadius.circular(22),
-                    //   ),
-                    //   child: Row(
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //       children: [
-                    //         Container(
-                    //           decoration: BoxDecoration(
-                    //             borderRadius: BorderRadius.circular(10),
-                    //           ),
-                    //           width: 64,
-                    //           height: 64,
-                    //           clipBehavior: Clip.antiAlias,
-                    //           child: Image.network(landModel.imageLink!),
-                    //         ),
-                    //         const Gap(21),
-                    //         Expanded(
-                    //           child: Column(
-                    //             crossAxisAlignment: CrossAxisAlignment.start,
-                    //             mainAxisAlignment: MainAxisAlignment.center,
-                    //             children: [
-                    //               const MainTitleText(
-                    //                 title: "Herbal pancake",
-                    //                 color: AppConst.kMainBlack,
-                    //                 textSize: 15,
-                    //               ),
-                    //               MainTitleText(
-                    //                 title: "Warung Herbal",
-                    //                 color:
-                    //                     AppConst.kMainBlack.withOpacity(0.3),
-                    //                 textSize: 14,
-                    //               ),
-                    //             ],
-                    //           ),
-                    //         ),
-                    //         const MainTitleText(
-                    //           title: "\$7",
-                    //           color: AppConst.kHorizontalMenuWidgetColor,
-                    //           textSize: 22,
-                    //         ),
-                    //       ],
-                    //   ),
-                    // );
-                  },
+                    },
+                  ),
                 ),
-              ),
               ],
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }

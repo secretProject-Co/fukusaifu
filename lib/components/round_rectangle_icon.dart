@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
 
 class RoundRectangleIcon extends StatelessWidget {
@@ -21,21 +22,21 @@ class RoundRectangleIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: rightMargin ?? 0),
-      width: 45,
-      height: 45,
+      width: 45.w,
+      height: 45.h,
       child: Container(
-        width: 45,
-        height: 45,
+        width: 45.w,
+        height: 45.h,
         decoration: ShapeDecoration(
           color: bkgColor ?? const Color(0xFFFAFDFF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 15),
           ),
-          shadows: const [
+          shadows: [
             BoxShadow(
-              color: Color(0x33134D5A),
-              blurRadius: 50,
-              offset: Offset(11, 28),
+              color: const Color(0x33134D5A),
+              blurRadius: 50.w,
+              offset: const Offset(11, 28),
               spreadRadius: 0,
             )
           ],
