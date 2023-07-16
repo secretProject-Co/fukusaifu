@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
 import 'package:gap/gap.dart';
@@ -18,8 +19,8 @@ class LanderingPageWdiget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 147,
-      height: 184,
+      width: 147.w,
+      height: 184.h,
       decoration: BoxDecoration(
         color: AppConst.kMainWhite,
         borderRadius: BorderRadius.circular(22),
@@ -34,23 +35,23 @@ class LanderingPageWdiget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Gap(26),
+          Gap(26.h),
           SizedBox(
-            width: 96,
-            height: 73,
+            width: 96.w,
+            height: 73.h,
             child:  Image.network(imagePath),
           ),
-          const Gap(17),
+          Gap(17.h),
           MainTitleText(
             title: title,
             color: AppConst.kMainBlack,
-            textSize: 16,
+            textSize: 16.sp,
           ),
-          const Gap(4),
+          Gap(4.h),
           MainTitleText(
             title: subTitle,
             color: AppConst.kMainBlack.withOpacity(0.5),
-            textSize: 16,
+            textSize: 16.sp,
           ),
         ],
       ),

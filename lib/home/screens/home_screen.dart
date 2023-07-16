@@ -39,50 +39,50 @@ class _HomeScreenState extends State<HomeScreen> {
                     MainTitleText(
                         title: "Fukusaifu\n見つけて、あなたの副業",
                         color: AppConst.kMainTitle,
-                        textSize: 25.sp),
+                        textSize: 23.sp),
                     RoundRectangleIcon(
                       icon: CupertinoIcons.bell,
                       rightMargin: 0.w,
                     ),
                   ],
                 ),
-                const Gap(18),
+                Gap(18.h),
                 CustomTextField(
                   hintText: "お探しの副業は？",
                   hintTextColor: AppConst.kMainInput.withOpacity(0.4),
                   inputBkgColor: AppConst.kMainBackBg.withOpacity(0.1),
                   isPassword: false,
                   controller: searchController,
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Icons.search,
-                    size: 24,
+                    size: 24.w,
                   ),
                   prefixIconColor: AppConst.kMainInput,
                 ),
-                const Gap(20),
-                const PromoBox(
+                Gap(20.h),
+                PromoBox(
                     graStartColor: AppConst.kMainGreen,
                     graEndColor: AppConst.kGradientEnd,
                     imagePath: "assets/images/logo/google-logo-icon.png",
-                    imageSize: 130,
+                    imageSize: 130.w,
                     mainTitle: "あなたのスキルを\n売り付けよう",
                     mainTitleColor: AppConst.kMainWhite,
-                    mainTitleSize: 18,
+                    mainTitleSize: 18.sp,
                     buttonText: "今すぐ登録",
                     buttonColor: AppConst.kGradientEnd,
-                    buttonTextSize: 10),
-                const MoreViewWidget(
-                  leftPadding: 6,
-                  rightPadding: 7,
-                  topPadding: 25,
+                    buttonTextSize: 10.sp),
+                MoreViewWidget(
+                  leftPadding: 6.w,
+                  rightPadding: 7.w,
+                  topPadding: 25.h,
                   leftTitle: "LP依頼",
                   rightTitle: "もっと見る",
                   leftTitleColor: AppConst.kMainBlack,
                   rightTitleColor: AppConst.kViewMore,
                 ),
-                const Gap(20),
+                Gap(20.h),
                 SizedBox(
-                  height: 184,
+                  height: 184.h,
                   child: ListView.separated(
                     shrinkWrap: true,
                     itemCount: model2.length,
@@ -97,24 +97,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     separatorBuilder: (BuildContext context, int index) {
                       return Container(
                         color: AppConst.kScreenBkgColor,
-                        child: const SizedBox(width: 20),
+                        child: SizedBox(width: 20.w),
                       );
                     },
                   ),
                 ),
-                const MoreViewWidget(
-                  leftPadding: 6,
-                  rightPadding: 7,
-                  topPadding: 25,
+                MoreViewWidget(
+                  leftPadding: 6.w,
+                  rightPadding: 7.w,
+                  topPadding: 25.h,
                   leftTitle: "人気ユーザー",
                   rightTitle: "もっと見る",
                   leftTitleColor: AppConst.kMainBlack,
                   rightTitleColor: AppConst.kViewMore,
                 ),
-                const Gap(20),
+                Gap(20.h),
                 SizedBox(
-                  height: 87,
-                  width: double.infinity,
+                  height: 87.h,
+                  width: 323.w,
                   child: PageView.builder(
                     itemCount: model2.length,
                     scrollDirection: Axis.horizontal,

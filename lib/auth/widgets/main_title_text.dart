@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainTitleText extends StatelessWidget {
   const MainTitleText({Key? key, required this.title, required this.color, required this.textSize})
@@ -13,7 +14,7 @@ class MainTitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: textSize,),
+      style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: textSize.sp,),
     );
   }
 }
