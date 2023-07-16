@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/components/gradient_button.dart';
 import 'package:fukusaifu/components/textfield.dart';
@@ -22,10 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(
-              left: 25,
-              right: 25,
-              bottom: MediaQuery.of(context).size.height * .03),
+          padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 30.h),
           color: Colors.grey.shade50,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,25 +32,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 flex: 5,
                 child: Container(
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.all(20.w),
                   child: SizedBox(
-                    width: MediaQuery.of(context).size.width * .5,
+                    width: (0.5.sw),
                     child: const FlutterLogo(
                       size: double.infinity,
                     ),
                   ),
                 ),
               ),
-              const Gap(20),
-              const Flexible(
+              Gap(20.h),
+              Flexible(
                 flex: 1,
                 child: MainTitleText(
                   title: "無料でアカウント作成",
                   color: AppConst.kMainTitle,
-                  textSize: 20,
+                  textSize: 20.sp,
                 ),
               ),
-              const Gap(20),
+              Gap(20.h),
               CustomTextField(
                 controller: emailController,
                 hintText: "ニックネーム",
@@ -61,7 +59,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 prefixIcon: const Icon(Icons.person_outline),
                 prefixIconColor: AppConst.kGradientEnd,
               ),
-              const Gap(10),
+              Gap(10.h),
               CustomTextField(
                 hintText: "Eメール",
                 borderLineColor: AppConst.kGradientEnd,
@@ -71,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 isPassword: showPass,
                 controller: passwordController,
               ),
-              const Gap(10),
+              Gap(10.h),
               CustomTextField(
                 hintText: "パスワード",
                 borderLineColor: AppConst.kGradientEnd,
@@ -91,27 +89,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 isPassword: showPass,
                 controller: passwordController,
               ),
-              const Gap(20),
+              Gap(20.h),
               Expanded(
                 flex: 1,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const MainTitleText(
+                    MainTitleText(
                       title: "アカウントをお持ちですか？",
                       color: AppConst.kMainTitle,
-                      textSize: 12,
+                      textSize: 12.sp,
                     ),
                     InkWell(
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: const Text(
+                      child: Text(
                         "サインイン",
                         style: TextStyle(
                           color: Colors.blue,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           decoration: TextDecoration.underline,
                           decorationColor: Colors.blue,
                         ),
@@ -120,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ],
                 ),
               ),
-              const Gap(20),
+              Gap(20.h),
               Expanded(
                 flex: 0,
                 child: Container(),
@@ -130,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 endColor: AppConst.kGradientEnd,
                 text: "アカウントを作成する",
                 textColor: AppConst.kMainWhite,
-                widthSize: 5,
+                widthSize: 5.w,
                 onPressed: () {
                   Navigator.pushNamed(context, '/signupScreenProcess');
                 },

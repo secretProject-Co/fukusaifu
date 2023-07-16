@@ -1,15 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GradientButton extends StatelessWidget {
-  const GradientButton(
-      {Key? key,
-      required this.startColor,
-      required this.endColor,
-      required this.text,
-      required this.textColor,
-      required this.widthSize, this.onPressed,})
-      : super(key: key);
+  const GradientButton({
+    Key? key,
+    required this.startColor,
+    required this.endColor,
+    required this.text,
+    required this.textColor,
+    required this.widthSize,
+    this.onPressed,
+  }) : super(key: key);
 
   final Color startColor;
   final Color endColor;
@@ -21,17 +22,17 @@ class GradientButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 50.h,
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      width: MediaQuery.of(context).size.width * (widthSize * 0.1),
+      width: (widthSize) * 0.1.sw,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
-            colors: [
-              startColor,
-              endColor,
-            ],
-          ),
+        borderRadius: BorderRadius.circular(15),
+        gradient: LinearGradient(
+          colors: [
+            startColor,
+            endColor,
+          ],
+        ),
         boxShadow: const [
           BoxShadow(
             color: Color(0x115A6CEA),
@@ -47,10 +48,11 @@ class GradientButton extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
           ),
+          backgroundColor: Colors.transparent,
           elevation: 0,
+          disabledForegroundColor: Colors.transparent.withOpacity(0.38),
+          disabledBackgroundColor: Colors.transparent.withOpacity(0.12),
           shadowColor: Colors.transparent,
-          primary: Colors.transparent,
-          onSurface: Colors.transparent,
         ),
         child: Text(
           text,

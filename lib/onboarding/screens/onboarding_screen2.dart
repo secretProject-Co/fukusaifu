@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/components/gradient_button.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
 import 'package:gap/gap.dart';
@@ -10,47 +11,64 @@ class OnboardingScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              "assets/images/logo/logo-fukusaifu.png",
-              width: 300,
-              height: 400,
-            ),
-            Text(
-              "Fukusaifuは高品質な副業を見つけるための\nあなたの最良のパートナー",
-              style: GoogleFonts.notoSans(
-                color: AppConst.kMainSubTitle,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 30.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 3,
+                child: Container(),
               ),
-              textAlign: TextAlign.center,
-            ),
-            const Gap(20),
-            Text(
-              "では、Fukusaifuへようこそ!",
-              style: GoogleFonts.notoSans(
-                color: AppConst.kMainBlack,
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
+              Image.asset(
+                "assets/images/logo/logo-fukusaifu.png",
+                width: 300.sp,
+                height: 400.sp,
               ),
-              textAlign: TextAlign.center,
-            ),
-            const Gap(35),
-            GradientButton(
-                startColor: AppConst.kMainGreen,
-                endColor: AppConst.kGradientEnd,
-                text: "Next",
-                textColor: AppConst.kMainWhite,
-                widthSize: 3.5,
-                onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, '/signinScreen', (route) => false);
-                }),
-          ],
+              Expanded(
+                flex: 1,
+                child: Container(),
+              ),
+              Column(
+                children: [
+                  Text(
+                    "Fukusaifuは高品質な副業を見つけるための\nあなたの最良のパートナー",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.notoSans(
+                      color: AppConst.kMainSubTitle,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Gap(10.h),
+                  Text(
+                    "では、Fukusaifuへようこそ!",
+                    style: GoogleFonts.notoSans(
+                      color: AppConst.kMainBlack,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(),
+              ),
+              GradientButton(
+                  startColor: AppConst.kMainGreen,
+                  endColor: AppConst.kGradientEnd,
+                  text: "Next",
+                  textColor: AppConst.kMainWhite,
+                  widthSize: 4.w,
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/signinScreen', (route) => false);
+                  }),
+            ],
+          ),
         ),
       ),
     );

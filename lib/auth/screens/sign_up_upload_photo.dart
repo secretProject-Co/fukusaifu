@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fukusaifu/auth/screens/sign_up_upload_preview.dart';
 import 'package:fukusaifu/auth/widgets/main_title_text.dart';
@@ -22,15 +23,12 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
   final ImagePicker _picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
-    final imageSize = MediaQuery.of(context).size.width / 4;
+    final imageSize = (.4.w);
 
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(
-              left: 25,
-              right: 25,
-              bottom: MediaQuery.of(context).size.height * .03),
+          padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 30.h),
           color: Colors.grey.shade50,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,24 +47,24 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                     children: [
                       Container(
                           alignment: Alignment.center,
-                          padding: const EdgeInsets.fromLTRB(5, 10, 0, 10)),
-                      const MainTitleText(
+                          padding: EdgeInsets.fromLTRB(5.w, 10.h, 0.w, 10.h)),
+                      MainTitleText(
                         title: "写真アップロード",
                         color: AppConst.kMainTitle,
-                        textSize: 24,
+                        textSize: 24.sp,
                       ),
-                      const Gap(15),
-                      const MainTitleText(
+                      Gap(15.h),
+                      MainTitleText(
                         title: "このデータはセキュリティのため、\nアカウントプロフィールに表示されます。",
                         color: AppConst.kMainTitle,
-                        textSize: 13,
+                        textSize: 13.sp,
                       ),
-                      const Gap(15),
+                      Gap(15.h),
                       Column(
                         children: [
                           Container(
-                            width: 375,
-                            height: 129,
+                            width: 375.w,
+                            height: 129.h,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                                 color: AppConst.kMainWhite,
@@ -96,7 +94,9 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                                   backgroundColor: Colors.transparent,
                                   onPressed: () async {
                                     _pickedFile = await _picker.pickImage(
-                                        source: ImageSource.gallery);
+                                      source: ImageSource.gallery,
+                                      imageQuality: 50,
+                                    );
                                     setState(() {});
                                   },
                                   heroTag: "photoUpload",
@@ -105,19 +105,17 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                                           "assets/images/photoUpload.svg")
                                       : Container(),
                                 ),
-                                const SizedBox(height: 10),
+                                SizedBox(height: 10.h),
                                 _pickedFile == null
                                     ? const Text("写真を選択")
                                     : Container(),
                               ],
                             ),
                           ),
-
-                          const Gap(30),
+                          Gap(30.h),
                           Container(
-                            width: 375,
-                            height:
-                                129, // adjust height to accommodate the text
+                            width: 375.w,
+                            height: 129.h,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                                 color: AppConst.kMainWhite,
@@ -139,7 +137,12 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                                   backgroundColor: Colors.transparent,
                                   onPressed: () async {
                                     _pickedFile = await _picker.pickImage(
-                                        source: ImageSource.camera);
+                                      source: ImageSource.camera,
+                                      preferredCameraDevice: CameraDevice.rear,
+                                      imageQuality: 50,
+                                      maxWidth: 500.w,
+                                      maxHeight: 500.h,
+                                    );
                                     setState(() {});
                                   },
                                   heroTag: "camera",
@@ -147,14 +150,13 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                                     "assets/images/camera.svg",
                                   ),
                                 ),
-                                const SizedBox(
-                                    height:
-                                        10), // provide some space between button and text
+                                SizedBox(
+                                  height: 10.h,
+                                ),
                                 const Text("カメラを起動"),
                               ],
                             ),
                           ),
-                          // const Text("カメラを起動"),
                         ],
                       ),
                     ],
@@ -167,7 +169,7 @@ class _SignUpUploadPhotoState extends State<SignUpUploadPhoto> {
                   endColor: AppConst.kGradientEnd,
                   text: "Next",
                   textColor: AppConst.kMainWhite,
-                  widthSize: 5,
+                  widthSize: 4.w,
                   onPressed: () {
                     if (_pickedFile != null) {
                       Navigator.push(
