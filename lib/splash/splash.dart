@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fukusaifu/components/page_move_with_animation.dart';
+import 'package:fukusaifu/onboarding/screens/onboarding_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../constants/color_constants.dart';
 
@@ -17,10 +20,16 @@ class _SplashState extends State<Splash> {
     startTimer();
   }
 
+
   startTimer() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushNamedAndRemoveUntil(
-          context, '/onboardingScreen', (route) => false);
+      PageMoveWithAnimation(
+              context: context,
+              child: const OnboardingScreen(),
+              duration: 600,
+              reversDuration: 600,
+              transitionType: PageTransitionType.fade)
+          .animationPushAndRemove();
     });
   }
 

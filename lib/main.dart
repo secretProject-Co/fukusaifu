@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/auth/screens/sign_up_success_screen.dart';
+import 'package:fukusaifu/constants/color_constants.dart';
 import 'package:fukusaifu/home/screens/home.dart';
+import 'package:fukusaifu/home/screens/popular_user.dart';
 import 'package:fukusaifu/splash/splash.dart';
 import 'auth/screens/sign_in_screen.dart';
 import 'auth/screens/sign_up_screen.dart';
@@ -38,12 +40,13 @@ class MyApp extends StatelessWidget {
           '/signupUploadPhoto': (context) => const SignUpUploadPhoto(),
           '/signupSuccessScreen': (context) => const SignupSuccessScreen(),
           '/signupUploadPreView': (context) => const SignupUploadPreView(),
+          '/popularUserScreen': (context) => const PopularUserScreen(),
           '/home': (context) => const Home(),
+
         },
-        title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          scaffoldBackgroundColor: AppConst.kScreenBkgColor,
           useMaterial3: true,
         ),
       ),

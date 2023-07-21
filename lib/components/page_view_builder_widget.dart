@@ -4,6 +4,7 @@ import 'package:fukusaifu/constants/color_constants.dart';
 import 'package:gap/gap.dart';
 
 class PageViewBuilderWidget extends StatelessWidget {
+
   const PageViewBuilderWidget(
       {Key? key,
       required this.title,
