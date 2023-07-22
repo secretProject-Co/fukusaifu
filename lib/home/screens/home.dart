@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fukusaifu/home/bottom/CustomButtomBar.dart';
+import 'package:fukusaifu/home/bottom/custom_bottom_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

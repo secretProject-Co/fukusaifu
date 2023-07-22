@@ -3,8 +3,9 @@ import 'package:fukusaifu/constants/color_constants.dart';
 import 'package:fukusaifu/home/screens/add_post_screen.dart';
 import 'package:fukusaifu/home/screens/chat_screen.dart';
 import 'package:fukusaifu/home/screens/home_screen.dart';
+import 'package:fukusaifu/home/screens/popular_user.dart';
 import 'package:fukusaifu/home/screens/profile_screen.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class CustomButtomBar extends StatefulWidget {
   const CustomButtomBar({final Key? key,})
@@ -75,11 +76,13 @@ class _CustomButtomBarState extends State<CustomButtomBar> {
       hideNavigationBar: _hideNavBar,
       decoration: const NavBarDecoration(colorBehindNavBar: Colors.indigo),
       itemAnimationProperties: const ItemAnimationProperties(
-        duration: Duration(milliseconds: 400),
+        duration: Duration(milliseconds: 200),
         curve: Curves.ease,
       ),
       screenTransitionAnimation: const ScreenTransitionAnimation(
         animateTabTransition: true,
+        curve: Curves.linear,
+        duration: Duration(milliseconds: 200),
       ),
       navBarStyle: NavBarStyle
           .style1, // Choose the nav bar style with this property

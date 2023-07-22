@@ -8,9 +8,13 @@ import 'package:fukusaifu/components/round_rectangle_icon.dart';
 import 'package:fukusaifu/components/textfield.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
 import 'package:fukusaifu/home/models/landing_page_model.dart';
+import 'package:fukusaifu/home/screens/categories_screen.dart';
+import 'package:fukusaifu/home/screens/popular_user.dart';
 import 'package:fukusaifu/home/widgets/landering_page_widget.dart';
 import 'package:fukusaifu/home/widgets/more_view_widget.dart';
+import 'package:fukusaifu/onboarding/screens/onboarding_screen.dart';
 import 'package:gap/gap.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -79,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   rightTitle: "もっと見る",
                   leftTitleColor: AppConst.kMainBlack,
                   rightTitleColor: AppConst.kViewMore,
+                  screen: const CategoriesScreen(),
                 ),
                 Gap(20.h),
                 SizedBox(
@@ -110,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   rightTitle: "もっと見る",
                   leftTitleColor: AppConst.kMainBlack,
                   rightTitleColor: AppConst.kViewMore,
+                  screen: const PopularUserScreen(),
                 ),
                 Gap(20.h),
                 SizedBox(
