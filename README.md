@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+
+https://github.com/secretProject-Co/fukusaifu/assets/85716180/2896bf08-bd4f-46e9-82c0-eead9043d7f0
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
