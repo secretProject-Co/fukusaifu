@@ -35,8 +35,8 @@ class RoundRectangleIcon extends StatelessWidget {
           shadows: [
             BoxShadow(
               color: const Color(0x33134D5A),
-              blurRadius: 50.w,
-              offset: const Offset(11, 28),
+              blurRadius: 30.w,
+              offset: const Offset(5, 15),
               spreadRadius: 0,
             )
           ],

@@ -13,7 +13,6 @@ import 'package:gap/gap.dart';
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
 
-
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
@@ -26,68 +25,69 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 60),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MainTitleText(
-                        title: "Fukusaifu\n見つけて、あなたの副業",
-                        color: AppConst.kMainTitle,
-                        textSize: 23.sp),
-                    RoundRectangleIcon(
-                      icon: CupertinoIcons.bell,
-                      rightMargin: 0.w,
-                    ),
-                  ],
-                ),
-                Gap(18.h),
-                CustomTextField(
-                  hintText: "お探しのユーザーは？",
-                  hintTextColor: AppConst.kMainInput.withOpacity(0.4),
-                  inputBkgColor: AppConst.kMainBackBg.withOpacity(0.1),
-                  isPassword: false,
-                  controller: searchController,
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 24.w,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 60),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  MainTitleText(
+                      title: "Fukusaifu\n見つけて、あなたの副業",
+                      color: AppConst.kMainTitle,
+                      textSize: 23.sp),
+                  RoundRectangleIcon(
+                    icon: CupertinoIcons.bell,
+                    rightMargin: 0.w,
                   ),
-                  prefixIconColor: AppConst.kMainInput,
+                ],
+              ),
+              Gap(18.h),
+              CustomTextField(
+                hintText: "お探しのユーザーは？",
+                hintTextColor: AppConst.kMainInput.withOpacity(0.4),
+                inputBkgColor: AppConst.kMainBackBg.withOpacity(0.1),
+                isPassword: false,
+                controller: searchController,
+                prefixIcon: Icon(
+                  Icons.search,
+                  size: 24.w,
                 ),
-                Gap(20.h),
-                MoreViewWidget(
-                  leftPadding: 6.w,
-                  rightPadding: 7.w,
-                  topPadding: 25.h,
-                  leftTitle: "カテゴリ",
-                  leftTitleColor: AppConst.kMainBlack,
-                  screen: const CategoriesScreen(),
-                ),
-                Gap(20.h),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  childAspectRatio: 0.7.h,
-                ),
-                itemCount: model2.length,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var landModel = model2[index];
-                  return LanderingPageWdiget(
+                prefixIconColor: AppConst.kMainInput,
+              ),
+              Gap(20.h),
+              MoreViewWidget(
+                leftPadding: 6.w,
+                rightPadding: 7.w,
+                topPadding: 25.h,
+                leftTitle: "カテゴリ",
+                leftTitleColor: AppConst.kMainBlack,
+                screen: const CategoriesScreen(),
+              ),
+              Gap(20.h),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                    childAspectRatio: 0.7.h,
+                  ),
+                  itemCount: model2.length,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    var landModel = model2[index];
+                    return LanderingPageWdiget(
                       title: landModel.title!,
                       imagePath: landModel.imageLink!,
-                      subTitle: landModel.price!.toString());
-                },
+                      subTitle: landModel.price!.toString(),
+                    );
+                  },
+                ),
               ),
-            )
-          ],
-            ),
-          )
+            ],
+          ),
+        ),
       ),
     );
   }

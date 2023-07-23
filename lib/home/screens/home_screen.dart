@@ -12,9 +12,10 @@ import 'package:fukusaifu/home/screens/categories_screen.dart';
 import 'package:fukusaifu/home/screens/popular_user.dart';
 import 'package:fukusaifu/home/widgets/landering_page_widget.dart';
 import 'package:fukusaifu/home/widgets/more_view_widget.dart';
-import 'package:fukusaifu/onboarding/screens/onboarding_screen.dart';
+// import 'package:fukusaifu/onboarding/screens/onboarding_screen.dart';
+
 import 'package:gap/gap.dart';
-import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+// import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -94,10 +95,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       var landModel = model2[index];
-                      return LanderingPageWdiget(
+                      return Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppConst.kBoxShadow.withOpacity(0.2),
+                              blurRadius: 200.w,
+                              offset: const Offset(15, 15),
+                              spreadRadius: 5,
+                            )
+                          ],
+                        ),
+                        child: LanderingPageWdiget(
                           title: landModel.title!,
                           imagePath: landModel.imageLink!,
-                          subTitle: landModel.price!.toString());
+                          subTitle: landModel.price!.toString(),
+                        ),
+                      );
                     },
                     separatorBuilder: (BuildContext context, int index) {
                       return Container(
