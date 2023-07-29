@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fukusaifu/auth/screens/sign_up_success_screen.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
+import 'package:fukusaifu/home/screens/chat_details_sceen.dart';
 import 'package:fukusaifu/home/screens/chat_screen.dart';
 import 'package:fukusaifu/home/screens/home.dart';
 import 'package:fukusaifu/home/screens/popular_user.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           '/signupUploadPreView': (context) => const SignupUploadPreView(),
           '/popularUserScreen': (context) => const PopularUserScreen(),
           '/chatScreen': (context) => const ChatScreen(),
+          '/chatDetailsScreen': (context) => ChatDetailsScreen(),
           '/home': (context) => const Home(),
 
         },

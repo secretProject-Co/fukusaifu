@@ -4,6 +4,7 @@ import 'package:fukusaifu/auth/widgets/main_title_text.dart';
 import 'package:fukusaifu/components/button/arrow_back.dart';
 import 'package:fukusaifu/components/textfield.dart';
 import 'package:fukusaifu/constants/color_constants.dart';
+import 'package:fukusaifu/home/bottom/custom_bottom_bar.dart';
 import 'package:fukusaifu/home/widgets/chat_list_widget.dart';
 import 'package:gap/gap.dart';
 
@@ -38,7 +39,6 @@ class _ChatScreenState extends State<ChatScreen> {
                     Align(
                         alignment: Alignment.centerLeft,
                         child: ArrowBackComponent(onPressed: () {
-                          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                         })),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
