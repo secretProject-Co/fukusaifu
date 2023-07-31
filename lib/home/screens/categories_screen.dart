@@ -45,7 +45,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 ),
                 Gap(18.h),
                 CustomTextField(
-                  hintText: "お探しのユーザーは？",
+                  hintText: "お探しのカテゴリは？",
                   hintTextColor: AppConst.kMainInput.withOpacity(0.4),
                   inputBkgColor: AppConst.kMainBackBg.withOpacity(0.1),
                   isPassword: false,
